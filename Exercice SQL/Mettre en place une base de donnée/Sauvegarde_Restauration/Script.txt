@@ -1,0 +1,5 @@
+  Ce placer dans le répertoire bin de MariaDB => C:\Program Files\MariaDB 10.4\bin
+
+  mysqldump --user=root --password=Beauvais60 --databases hotel > C:\Backup\hotel_papyrus.sql
+
+  mysql --user=root --password=Beauvais60 hotel < C:\Backup\backup_hotel.sql
