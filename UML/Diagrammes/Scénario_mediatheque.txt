@@ -1,0 +1,40 @@
+Employe : Demande nouvel emprunt
+Systeme : Demande réf
+Employe : Fournis num lecteur + num doc
+Systeme : Controle ref + emprunt + cotisation, demande confirmation
+Employe : Confirme
+Systeme : enregistrement  emprunt + etablie fiche de pret et affiche
+
+
+Flot alternatif : 
+
+Le client n'est pas abonné : 
+
+Systeme: envoi message "Utilisateur non abonné" + affiche formulaire abonnement
+Employe : Complete le formulaire
+Systeme : Controle les information du formulaire 
+
+		Info formulaire incorrect:
+
+		Systeme : bloque le bouton de validation du formulaire et affiche les erreurs correspondantes
+
+Employe : modifie les données et envois le formulaire
+
+Systeme Envois un message "Nouvel utilisateur enregistré" + retour sur la page d'emprunt
+
+
+Le client n'a pas payer sa cotisation : 
+
+Systeme : affiche un message d'avertissement 'Mr X n'a pas payé sa cotisation'
+Systeme : demande confirmation de reglement cotisation
+Utilisateur : Confirme
+Systeme: Enregistre le reglement de la cotisation + envois message 'modification effectués'.
+
+
+Le client à déjà emprunter 5 documents ou plus  :
+
+Systeme : Message d'erreur "Nombres limites d'emprunt atteint, veuillez rendres vos documents empruntés"
+Systeme : Demande confirmation retour documents
+Utilisateur : Confirme
+Systeme : Enregistre les nouveaux retour docs.
+
