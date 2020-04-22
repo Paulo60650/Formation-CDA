@@ -1,0 +1,16 @@
+/* Style pour boucles.php */
+.boucle{
+   margin-left: 3%;
+}
+h3, h4{
+   margin-left: 1%;
+   text-decoration-line: underline
+}
+pre{
+   background-color: black;
+   color: aliceblue;
+   font-size: 1.2vw;
+}
+table, tr, td{
+   border: 1px solid #000000;
+}
