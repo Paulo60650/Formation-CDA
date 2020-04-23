@@ -8,9 +8,22 @@ h3, h4{
 }
 pre{
    background-color: black;
-   color: aliceblue;
-   font-size: 1.2vw;
+   color: rgb(255, 255, 255);
+   font-size: 1.1vw;
 }
 table, tr, td{
    border: 1px solid #000000;
+   margin-left: 2%;
+}
+table{
+   margin-top: 2%;
+}
+/* Style pour tableaux.php*/
+p{
+   margin-left: 2%;
+   font-size: 1.2vw;
+}
+i{
+   margin-left: 3%;
+   font-size: 1.2vw;
 }

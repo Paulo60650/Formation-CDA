@@ -13,7 +13,7 @@
   }
 ?> 
 </div>
-<h4>Code de l'exercice 1 :</h4>
+<h4>Code de l'exercice :</h4>
 <!-- Incorporation du code de l'exercice 1 grace aux balises <pre> et <code> -->
 <pre>
   <code>
@@ -39,7 +39,7 @@
   } 
   ?> 
   </div>
-  <h4>Code l'exercice 2 :</h4>
+  <h4>Code l'exercice :</h4>
   <!-- Incorporation du code de l'exercice 2 grace aux balises <pre> et <code> -->
   <pre>
   <code>
@@ -78,7 +78,7 @@
      echo "</table>";
   ?> 
   </div>
-  <h4>Code l'exercice 3 :</h4>
+  <h4>Code l'exercice :</h4>
   <!-- Incorporation du code de l'exercice 3 grace aux balises <pre> et <code> -->
   <pre>
     <code>
