@@ -1,6 +1,8 @@
 <link rel="stylesheet" href="../assets/CSS/style.css">
+<h1>Les Boucles PHP</h1>
 <h3>Exercice 1 :</h3>
-<h4>Consigne : Ecrire un script PHP qui affiche tous les nombres impairs entre 0 et 150, par ordre croissant : 1 3 5 7...</h4>
+<h4>Consigne :</h4>
+<p>-Ecrire un script PHP qui affiche tous les nombres impairs entre 0 et 150, par ordre croissant : 1 3 5 7...</p>
 <div class="boucle">
 <?php 
   for ($i = 1; $i <= 149; $i += 2) {
@@ -31,7 +33,8 @@
 </pre>
 <!-- Debut de l'exercice 2 -->
 <h3>Exercice 2 :</h3>
-<h4>Consigne : Écrire un programme qui écrit 500 fois la phrase Je dois faire des sauvegardes régulières de mes fichiers</h4>
+<h4>Consigne :</h4>
+<p>-Écrire un programme qui écrit 500 fois la phrase "Je dois faire des sauvegardes régulières de mes fichiers"</p>
 <div class="boucle">
   <?php 
   for ($i = 1; $i <= 500; $i++) { 
@@ -53,7 +56,8 @@
   <br>
   <!-- Debut de l'exercice 3 -->
   <h3>Exercice 3 :</h3>
-  <h4>Consigne : Ecrire un script qui affiche la table de multiplication totale de {1,...,12} par {1,...,12} dans un tableau HTML</h4>
+  <h4>Consigne :</h4>
+  <p>- Ecrire un script qui affiche la table de multiplication totale de {1,...,12} par {1,...,12} dans un tableau HTML</p>
   <div class="boucle">
   <?php 
      echo "<table>";

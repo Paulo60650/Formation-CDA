@@ -1,4 +1,5 @@
 <link rel="stylesheet" href="../assets/CSS/style.css">
+<h1>Les Tableaux PHP</h1>
 <h3>Exercice 1 :</h3>
 <h4>Consignes :</h4>
 <p>-Créez un tableau associant à chaque mois de l’année le nombre de jours du mois.</p> 

@@ -1,3 +1,6 @@
+h1{
+   text-align: center;
+}
 /* Style pour boucles.php */
 .boucle{
    margin-left: 3%;
@@ -26,4 +29,8 @@ p{
 i{
    margin-left: 3%;
    font-size: 1.2vw;
+}
+/* Style pour fonction.php   */
+a{
+   margin-left: 2%;
 }
