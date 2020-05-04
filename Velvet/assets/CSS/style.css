@@ -1,0 +1,9 @@
+h1{
+    text-align: center;
+}
+#errTitle,#errArtist,#errYear,#errGenre,#errLabel,#errPrice{
+    width: 100%;
+}
+#bouton{
+    margin-top: 4%;
+}

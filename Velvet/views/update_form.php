@@ -1,0 +1,53 @@
+<?php
+$accueil = "../index.php";
+$form = "#";
+$add = "add_form.php";
+$css ="../assets/CSS/style.css";
+include "header.php"
+?>
+<section class="row">
+    <form action="http://bienvu.net/script.php" method="POST" class="col-5">
+      <fieldset>
+        <legend class="titre2">Modifier un vynile</legend>
+        <div class="form-row">
+          <label for="title">Title</label>
+          <input type="text" id="title" class="form-control" name="title" placeholder="Fugazi">
+          <span id="errTitle"></span>
+        </div>
+        <div>
+          <label>Artist</label>
+          <select class="form-control" id="artist">
+            <option value="1">Choisissez</option>
+            <option value="Lila">Lila</option>
+            <option value="Lola">Lola</option>
+          </select>   
+          <span id="errArtist"></span>
+        </div>
+        <div class="form-row">
+          <label for="year">Year</label>
+          <input id="year" type="text" class="form-control" name="year" placeholder="1984">
+          <span id="errYear"></span>
+        </div>
+        <div class="form-row">
+          <label for="genre">Genre</label>
+          <input id="genre" type="text" class="form-control" name="genre" placeholder="Prog">
+          <span id="errGenre"></span>
+        </div>
+        <div class="form-row">
+          <label for="label">Label</label>
+          <input id="label" type="text" class="form-control" name="label" placeholder="EMI">
+          <span id="errLabel"></span>
+        </div>
+        <div class="form-row">
+          <label for="mail">Price</label>
+          <input id="price" type="text" class="form-control" name="price" placeholder="14.99">
+          <span id="errPrice"></span>
+        </div>
+        <div id="bouton">
+            <input id="envoie" class="btn btn-primary" type="submit" value="Mofifier">
+            <input class="btn btn-primary" type="reset" value="Annuler">
+        </div>
+      </fieldset>
+    </form>
+</section>
+<?php include "footer.php"?>
