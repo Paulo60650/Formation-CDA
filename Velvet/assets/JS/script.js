@@ -120,17 +120,6 @@ check.addEventListener("click", function verif(event) {
     verifLabel(label);
     verifPrice(price);
 });
-// Recuperation de l'id select
-// var environnement = document.getElementById('select');
-// Ajout de l'evenement Change a l'id select + Declaration de la fonction 
-// permettanr d'ajouter la valeurs selectionne dans la textarea
-// environnement.addEventListener("change", function () {
-//     var select = document.getElementById("select").value;
-//     if (select != 1) {
-//         document.getElementById("envir").textContent += select + "\n";
-//     }
-// });
-
 // Controle grace a l'event keyup et au fonction defini plus haut
 var title = document.getElementById("title");
 title.addEventListener("keyup", function keyTitle() {
@@ -159,4 +148,10 @@ label.addEventListener("keyup", function keyLabel() {
 var price = document.getElementById("price");
 price.addEventListener("keyup", function keyPrice() {
     verifPrice(this.value);
+});
+
+// Function de re direction pour le bouton Detail
+var detail = document.getElementsByClassName("detail");
+detail.addEventListener("click", function redirige(){
+window.location.href="views/detail.php";
 });

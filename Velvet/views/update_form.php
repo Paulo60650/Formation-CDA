@@ -2,6 +2,7 @@
 $accueil = "../index.php";
 $form = "#";
 $add = "add_form.php";
+$del = "delete_form.php";
 $css ="../assets/CSS/style.css";
 include "header.php"
 ?>
@@ -50,4 +51,7 @@ include "header.php"
       </fieldset>
     </form>
 </section>
-<?php include "footer.php"?>
+<?php 
+$js = "../assets/JS/script.js";
+include "footer.php";
+?>
