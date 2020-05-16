@@ -4,7 +4,7 @@ $form = "update_form.php";
 $add = "add_form.php";
 $del = "#";
 $css ="../assets/CSS/style.css";
-include "header.php"
+include "header.php";
 ?>
 
 <?php

@@ -127,7 +127,7 @@ title.addEventListener("keyup", function keyTitle() {
 });
 
 var artist = document.getElementById("artist");
-artist.addEventListener("change", function keyArtist() {
+artist.addEventListener("keyup", function keyArtist() {
     verifArtist(this.value);
 });
 

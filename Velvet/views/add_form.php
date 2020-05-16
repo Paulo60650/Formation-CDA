@@ -1,10 +1,10 @@
 <?php
 $accueil = "../index.php";
-$form = "update_form.php";
 $add = "#";
-$del = "delete_form.php";
 $css ="../assets/CSS/style.css";
-include "header.php"
+include "header.php";
+require "../models/connexion_database.php";
+require "../models/m_artist.php";
 ?>
 <section class="row">
     <form action="http://bienvu.net/script.php" method="POST" class="col-5">
@@ -19,8 +19,9 @@ include "header.php"
           <label>Artist</label>
           <select class="form-control" id="artist">
             <option value="1">Choisissez</option>
-            <option value="Lila">Lila</option>
-            <option value="Lola">Lola</option>
+            <?php foreach($tabartist as $row) {?>
+            <option value="<?= $row->artist_name ?>"><?= $row->artist_name ?></option>
+            <?php } ?>
           </select>   
           <span id="errArtist"></span>
         </div>

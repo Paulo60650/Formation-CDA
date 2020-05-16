@@ -1,49 +1,47 @@
 <?php
 $accueil = "../index.php";
-$form = "#";
 $add = "add_form.php";
-$del = "delete_form.php";
 $css ="../assets/CSS/style.css";
-include "header.php"
+include "header.php";
+require "../models/m_cd.php";
 ?>
 <section class="row">
-    <form action="http://bienvu.net/script.php" method="POST" class="col-5">
+
+    <form action="../controlers/update_control.php" method="POST" class="col-5">
       <fieldset>
         <legend class="titre2">Modifier un vynile</legend>
         <div class="form-row">
           <label for="title">Title</label>
-          <input type="text" id="title" class="form-control" name="title" placeholder="Fugazi">
+          <input type="text" id="title" class="form-control" name="title" value="<?php if(isset($_POST['title'])){ echo $_POST['title'];} else {echo $title;}?>">
           <span id="errTitle"></span>
         </div>
         <div>
           <label>Artist</label>
-          <select class="form-control" id="artist">
-            <option value="1">Choisissez</option>
-            <option value="Lila">Lila</option>
-            <option value="Lola">Lola</option>
-          </select>   
+          <input type="text" id="artist" class="form-control" name="name" value="<?php if(isset($_POST['name'])){ echo $_POST['name'];} else {echo $name;}?>">
           <span id="errArtist"></span>
         </div>
         <div class="form-row">
           <label for="year">Year</label>
-          <input id="year" type="text" class="form-control" name="year" placeholder="1984">
+          <input id="year" type="text" class="form-control" name="year" value="<?php if(isset($_POST['year'])){ echo $_POST['year'];} else {echo $year;}?>">
           <span id="errYear"></span>
         </div>
         <div class="form-row">
           <label for="genre">Genre</label>
-          <input id="genre" type="text" class="form-control" name="genre" placeholder="Prog">
+          <input id="genre" type="text" class="form-control" name="genre" value="<?php if(isset($_POST['genre'])){ echo $_POST['genre'];} else {echo $genre;}?>">
           <span id="errGenre"></span>
         </div>
         <div class="form-row">
           <label for="label">Label</label>
-          <input id="label" type="text" class="form-control" name="label" placeholder="EMI">
+          <input id="label" type="text" class="form-control" name="label" value="<?php if(isset($_POST['label'])){ echo $_POST['label'];} else {echo $label;}?>">
           <span id="errLabel"></span>
         </div>
         <div class="form-row">
           <label for="mail">Price</label>
-          <input id="price" type="text" class="form-control" name="price" placeholder="14.99">
+          <input id="price" type="text" class="form-control" name="price" value="<?php if(isset($_POST['price'])){ echo $_POST['price'];} else {echo $price;}?>">
           <span id="errPrice"></span>
         </div>
+        <input type="hidden" name="id" value="<?= $id?>">
+        <input type="hidden" name="nom" value="<?= $nom?>">
         <div id="bouton">
             <input id="envoie" class="btn btn-primary" type="submit" value="Mofifier">
             <input class="btn btn-primary" type="reset" value="Annuler">
