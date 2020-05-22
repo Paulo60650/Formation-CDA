@@ -1,13 +1,8 @@
 <?php
-$accueil = "../index.php";
-$form = "update_form.php";
-$add = "add_form.php";
-$del = "#";
-$css ="../assets/CSS/style.css";
-include "header.php";
+include_once "header.php";
+include_once "../controlers/delete_control.php"
 ?>
-
+<h4 class="<?= $class ?>"><?= $message ?></h4>
 <?php
-$js = "../assets/JS/script.js";
-include "footer.php";
+include_once "footer.php"
 ?>

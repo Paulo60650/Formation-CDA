@@ -1,12 +1,18 @@
 <?php
 include_once "../models/m_cd.php";
 include_once "../models/m_artist.php";
+
 session_start();
+
+if (!$_SESSION['isConnect']) {
+    header('location:../index.php');
+}
 
 $disc = new Disc();
 $list = new Artist();
-$tabError = [];
+$artist = $list->getList();
 $message = '';
+$tabError = [];
 
 // REGEX
 $filtreText = '/(^[\wéèêëûüîïôàçæœ\(\)\&\s\-\.\,\_\+\=\/\%€@\'\"\*\\`\!\?\;\[\]]*$)/i';
@@ -48,9 +54,25 @@ if (isset($_POST['envoie'])) {
     }
 
 // Controle de la valeur de l'ínput Artist
-    if (empty($_POST['artist'])) {
+    if ($_POST['artist'] == 0) {
         $tabError['artist'] = 'Renseignez ce champs';
     }
+    if (empty($_FILES['picture'])) {
+        $tabError['picture'] = 'Veuillez choisir une image';
+    } else {
+        // Controle de la valeur de l'ínput Picture
+        $aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
+
+        // On récupère l'information sur le MIME_TYPE
+        $finfo = finfo_open(FILEINFO_MIME_TYPE);
+        $mimetype = finfo_file($finfo, $_FILES["picture"]["tmp_name"]);
+        finfo_close($finfo);
+
+        if (!in_array($mimetype, $aMimeTypes)) {
+            $tabError['picture'] = 'Le type de fichier n\'est pas pris en charge ! Veuillez recommencer';
+        }
+    }
+
     if (count($tabError) == 0) {
         $array = [
             ':title' => filter_input(INPUT_POST, 'title', FILTER_SANITIZE_SPECIAL_CHARS),
@@ -58,39 +80,17 @@ if (isset($_POST['envoie'])) {
             ':year' => filter_input(INPUT_POST, 'year', FILTER_SANITIZE_NUMBER_INT),
             ':label' => filter_input(INPUT_POST, 'label', FILTER_SANITIZE_SPECIAL_CHARS),
             ':genre' => filter_input(INPUT_POST, 'genre', FILTER_SANITIZE_SPECIAL_CHARS),
-            ':id' => filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT),
             ':price' => filter_input(INPUT_POST, 'price', FILTER_SANITIZE_SPECIAL_CHARS),
-            ':picture' => $_FILES['newPicture']['name']
+            ':picture' => $_FILES['picture']['name']
         ];
-        if (empty($array[':picture'])) {
-            $array[':picture'] = filter_input(INPUT_POST, 'picture', FILTER_SANITIZE_SPECIAL_CHARS);
-        } else {
-            $aMimeTypes = array("image/gif", "image/jpeg", "image/pjpeg", "image/png", "image/x-png", "image/tiff");
+        $disc->setAddDisc($array);
 
-            // On récupère l'information sur le MIME_TYPE
-            $finfo = finfo_open(FILEINFO_MIME_TYPE);
-            $mimetype = finfo_file($finfo, $_FILES["newPicture"]["tmp_name"]);
-            finfo_close($finfo);
-
-            if (in_array($mimetype, $aMimeTypes)) {
-                if (!file_exists("../assets/img/" . $_FILES['newPicture']['name'])) {
-                    if (is_uploaded_file($_FILES['newPicture']['tmp_name'])) {
-                        move_uploaded_file($_FILES['newPicture']['tmp_name'], __DIR__ . '/../../Velvet/assets/img/' . $_FILES["newPicture"]['name']);
-
-                    }
-                }
-            } else {
-                $tabError['picture'] = 'Le format du fichier n\'est pas pris en charge';
+        if (!file_exists("../assets/img/" . $_FILES['picture']['name'])) {
+            if (is_uploaded_file($_FILES['picture']['tmp_name'])) {
+                move_uploaded_file($_FILES['picture']['tmp_name'], __DIR__ . '/../../Velvet/assets/img/' . $_FILES["picture"]['name']);
+                $message = 'Le Vinyle a bien été ajouté félicitations! Vous serez redirigé vers l\'accueil dans 3 secondes';
+                header("refresh:3;url=../index.php");
             }
-        }
-        if (empty($tabError['picture'])) {
-            $disc->setDisc($array);
-            $class = 'list-group-item list-group-item-success text-center';
-            $message = 'Le Vinyle à bien été mofifié ! Vous allez être redirigé vers l\'Accueil dans 3 secondes';
-            header("refresh:3;url=../index.php");
         }
     }
 }
-$id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT) ?: $array[':id'];
-$detail = $disc->getDetail($id);
-$artist = $list->getList();

@@ -1,8 +1,7 @@
 // Déclarations de mes différents regex
-var alpha = /(^[a-zA-Zéèêëôœîïûüàáâæç-\s]+$)/;
-// regex demandant une première lettre en majuscule plus tout les caractères spéciaux ensuite
-var annee = /(^(19|20){1}[0-9]{2}$)/;
-var prix = /(^[0-9]{1,10}\.[0-9]{2})/;
+const alpha = /(^[\wéèêëûüîïôàçæœ\(\)\&\s\-\.\,\_\+\=\/\%€@\'\"\*\\`\!\?\;\[\]]*$)/i;
+const annee = /(^(19|20){1}[0-9]{2}$)/;
+const prix = /(^[0-9]{1,10}\.[0-9]{2})/;
 
 var errTitle = document.getElementById("errTitle");
 var errArtist = document.getElementById("errArtist");
@@ -17,12 +16,10 @@ function verifTitle(title) {
     if (title == "") {
         errTitle.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner le titre</h6>";
         event.preventDefault();
-    }
-    else if (!alpha.test(title)) {
+    } else if (!alpha.test(title)) {
         errTitle.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un genre valide</h6>";
         event.preventDefault();
-    }
-    else {
+    } else {
         errTitle.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
 
     }
@@ -33,12 +30,7 @@ function verifArtist(artist) {
     if (artist == "") {
         errArtist.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner l'artiste</h6>";
         event.preventDefault();
-    }
-    else if (!alpha.test(artist)) {
-        errArtist.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un artiste valide</h6>";
-        event.preventDefault();
-    }
-    else {
+    } else {
         errArtist.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
     }
 };
@@ -47,12 +39,10 @@ function verifArtist(artist) {
 function verifYear(year) {
     if (year == "") {
         errYear.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner l'annee</h6>";
-    }
-    else if (!annee.test(year)) {
+    } else if (!annee.test(year)) {
         errYear.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner une annee valide</h6>";
         event.preventDefault();
-    }
-    else {
+    } else {
         errYear.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
     }
 };
@@ -61,12 +51,10 @@ function verifYear(year) {
 function verifGenre(genre) {
     if (genre == "") {
         errGenre.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un genre</h6>";
-    }
-    else if (!alpha.test(genre)) {
+    } else if (!alpha.test(genre)) {
         errGenre.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un genre valide</h6>";
         event.preventDefault();
-    }
-    else {
+    } else {
         errGenre.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
     }
 };
@@ -75,12 +63,10 @@ function verifGenre(genre) {
 function verifLabel(label) {
     if (label == "") {
         errLabel.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner le label</h6>";
-    }
-    else if (!alpha.test(label)) {
+    } else if (!alpha.test(label)) {
         errLabel.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un label valide</h6>";
         event.preventDefault();
-    }
-    else {
+    } else {
         errLabel.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
     }
 };
@@ -90,12 +76,10 @@ function verifPrice(price) {
     if (price == "") {
         errPrice.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner le prix</h6>";
         event.preventDefault();
-    }
-    else if (!prix.test(price)) {
+    } else if (!prix.test(price)) {
         errPrice.innerHTML = "<h6 class=\"alert alert-danger\" role=\"alert\">Veuillez renseigner un prix valide</h6>";
         event.preventDefault();
-    }
-    else {
+    } else {
         errPrice.innerHTML = "<h6 class=\"alert alert-success\" role=\"alert\">Ok</h6>";
     }
 };
@@ -127,7 +111,7 @@ title.addEventListener("keyup", function keyTitle() {
 });
 
 var artist = document.getElementById("artist");
-artist.addEventListener("keyup", function keyArtist() {
+artist.addEventListener("change", function keyArtist() {
     verifArtist(this.value);
 });
 
@@ -148,10 +132,4 @@ label.addEventListener("keyup", function keyLabel() {
 var price = document.getElementById("price");
 price.addEventListener("keyup", function keyPrice() {
     verifPrice(this.value);
-});
-
-// Function de re direction pour le bouton Detail
-var detail = document.getElementsByClassName("detail");
-detail.addEventListener("click", function redirige(){
-window.location.href="views/detail.php";
 });
