@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+ {% block body %}
+     <div class="container">
+         <div class="row mt-5">
+             <div class="col-sm-10">
+                    <table class="table table-light table-hover">
+                        <thead>
+                        <tr>
+                            <th>ID du produit</th>
+                            <th>Nom</th>
+                            <th>Nom du Fournisseur</th>
+                            <th>ID Categorie</th>
+                            <th>Quantité par unité</th>
+                            <th>Prix Unitaire</th>
+                            <th>Unités en stock</th>
+                            <th>Unités en commande </th>
+                            <th>Niveau d'alerte</th>
+                            <th>Discontinued</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for obj in obj %}
+                        <tr>
+                            <td>{{obj.id}}</td>
+                            <td>{{obj.name}}</td>
+                            <td>{{obj.suppliers.name}}</td>
+                            <td>{{obj.categorie}}</td>
+                            <td>{{obj.quantityUnit}}</td>
+                            <td>{{obj.unitPrice}}</td>
+                            <td>{{obj.stock}}</td>
+                            <td>{{obj.unitCommand}}</td>
+                            <td>{{obj.alert}}</td>
+                            <td>{{obj.dis}}</td>
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+             </div>
+         </div>
+     </div>
+ {% endblock %}

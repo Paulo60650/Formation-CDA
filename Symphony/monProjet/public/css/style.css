@@ -1,0 +1,16 @@
+body{
+    background-color: black !important;
+}
+h1, p {
+    color: #C9C9C9;
+}
+h1{
+    text-align: center !important;
+}
+table, tr, td, th{
+    border: 1px solid #000000 !important;
+    margin-left: 2% !important;
+ }
+ table{
+    margin-top: 2% !important;
+ }
